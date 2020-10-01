@@ -9,16 +9,20 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.3.1",
     "node-sass": "^4.14.1",
+    "onchange": "^7.0.2",
     "popper.js": "^1.12.9"
   },
   "devDependencies": {
-    "lite-server": "^2.5.4"
+    "lite-server": "^2.5.4",
+    "parallelshell": "^3.0.2"
   },
   "scripts": {
     "start": "npm run lite",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lite": "lite-server",
-    "scss": "node-sass -o css/ css/"
+    "scss": "node-sass -o css/ css/",
+    "watch:scss": "onchange \"css/*.scss\" -- npm run scss",
+    "watch:all": "parallelshell \"npm run watch:scss\" \"npm run lite\""
   },
   "author": "verlopeza",
   "license": "ISC"
